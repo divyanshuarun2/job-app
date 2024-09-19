@@ -32,13 +32,13 @@ private JobRepository jobRepository;
 
     @Override
     public boolean deleteById(Long id) {
-        try {
+        boolean jobfound = jobRepository.existsById(id);
+
+        if(jobfound==true){
             jobRepository.deleteById(id);
             return true;
         }
-        catch (Exception e){
-            return false;
-        }
+        return false;
 
     }
 
