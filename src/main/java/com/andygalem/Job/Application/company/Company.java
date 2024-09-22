@@ -1,9 +1,14 @@
 package com.andygalem.Job.Application.company;
 
 import com.andygalem.Job.Application.job.Job;
+import com.andygalem.Job.Application.review.Review;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.springframework.context.annotation.Lazy;
 
 import java.util.List;
+
+import static jakarta.persistence.CascadeType.DETACH;
 
 @Entity
 public class Company {
@@ -13,14 +18,31 @@ public class Company {
     private String name;
     private String description;
 
+    //this means company table has relationship with job table
+    // job table has  company column
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
-    //@onetomany
-    //private List<Review> reviews;c
+
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
+
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     public Company() {
 
     }
 
+    @JsonIgnore
+    // JsonIgnore is used to stop serialization and deserialization
+    // it will not have any impact on DB
+    // but in post-man it will be a infinite loop..
     public List<Job> getJobs() {
         return jobs;
     }

@@ -14,8 +14,12 @@ public class Job {
     private String minSalary;
     private String maxSalary;
     private String location;
-    @ManyToOne
+    // This is owning side of relationship
+    // owning side means, this table contain the id of company in its table
+    // below is the table of Job
+    // |id|title| description| minSalary| maxSalary| location| company_id|
 
+    @ManyToOne
     private Company company;
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
