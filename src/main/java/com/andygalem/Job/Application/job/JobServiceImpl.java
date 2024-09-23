@@ -1,5 +1,6 @@
 package com.andygalem.Job.Application.job;
 
+import com.andygalem.Job.Application.company.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +53,10 @@ private JobRepository jobRepository;
                 job.setTitle(updatedJob.getTitle());
                 job.setMinSalary(updatedJob.getMinSalary());
                 job.setMaxSalary(updatedJob.getMaxSalary());
+                // adding a functionality if we want to put
+                // declare a company while updating
+                job.setCompany(updatedJob.getCompany());
+
                 jobRepository.save(job);
                 return true;
 
