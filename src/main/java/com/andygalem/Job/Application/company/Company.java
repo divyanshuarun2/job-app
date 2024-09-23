@@ -1,6 +1,7 @@
 package com.andygalem.Job.Application.company;
 
 import com.andygalem.Job.Application.job.Job;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;

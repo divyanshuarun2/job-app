@@ -1,5 +1,8 @@
 package com.andygalem.Job.Application.job;
 
+import com.andygalem.Job.Application.company.Company;
+import com.andygalem.Job.Application.company.CompanyController;
+import com.andygalem.Job.Application.company.CompanyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -12,7 +15,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/jobs")
 public class JobController {
-
+    @Autowired
+    private CompanyController companyController;
     @Autowired
     private JobService jobService;
 
