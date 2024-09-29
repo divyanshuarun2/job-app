@@ -1,0 +1,21 @@
+#docker run -d --name contianer_name
+#-e VAR=VALUE
+#-e VAR=VALUE
+#-e VAR=VALUE
+# -p 8080:8080
+#--network n/w_name
+#-v postgres:/data/postgres
+#--restart unless-stopped
+#<img name>
+
+services:
+  postgres:
+    container_name: db
+    image: postgres
+    networks:
+      -postgres
+
+    environment:
+      POSTGRES_USER: osho
+      POSTGRES_PASSWORD: root
+
