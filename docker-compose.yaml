@@ -8,6 +8,8 @@
 #--restart unless-stopped
 #<img name>
 
+#network and volume should be defined with same level as servers
+
 services:
   postgres:
     container_name: postgres_container
